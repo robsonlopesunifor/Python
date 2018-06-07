@@ -1,0 +1,10 @@
+GIT
+
+	1° instalar o git 
+		Ubuntu : sudo apt-get install git git-core
+
+	2° va para pasta do servidor
+		cd controle_gastos
+
+	3° inicie o git
+		git init

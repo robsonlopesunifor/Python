@@ -1,0 +1,7 @@
+<html id='a4'>
+<head>
+<title>Your page title here</title>
+<link href="mystyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body nome="corpo" />
+</html>

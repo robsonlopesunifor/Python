@@ -1,0 +1,12 @@
+
+
+A melhor forma de instalar o pandas e instalando o anaconda, que vai instalar todos pacotes dependentes 
+https://www.anaconda.com/download/#windows 
+
+mais informações sobre como instalar o panda  
+https://pandas.pydata.org/pandas-docs/stable/install.html 
+
+
+ 
+
+

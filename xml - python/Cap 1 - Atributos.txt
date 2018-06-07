@@ -1,0 +1,9 @@
+from lxml import etree  # retornado ElementTreeclasse árvore do xml
+
+doc = etree.parse('arquivo_xml.xml')
+root = doc.getroot() # retorna o elemento raiz 
+
+print root.tag 	... ficheiro	# tag
+print root.text ... texto do ficheiro	# texto
+print root.tail ... none	# rabo: texto do lado da tag
+print root.attrib ... {'estilo': 'cash game', 'cadeiras': '6', 'img': 'entrada.jpg', 'nome': 'M6C'}	# atributo dicionario  {}

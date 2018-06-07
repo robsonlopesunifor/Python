@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form method="POST" > 
+    <!-- ////////// metodo com o verbo: POST -->
+    {% csrf_token %} 
+    <!-- ////////// potege contra ataques hackers -->
+
+    {{ form.as_p }} 
+    <!-- ////////// carrega o form.as_p organiza na vertical -->
+    <button type="submit">Salvar</button>
+    
+    <a href="{% url 'url_deletar' transacao.id %}">Remover</a> 
+    <!-- ////////// {% url 'url_nome' %} -->
+    <!-- ////////// transacao.id pega o id da intacia do model
+		    passar dados pela url: /url/3/ -->
+</form>
+
+</body>
+</html>

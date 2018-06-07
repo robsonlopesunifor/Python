@@ -1,0 +1,42 @@
+# arquivos de media sao os arquivos enviados pelo usuario (upload)
+# o mais recomendado e usar um repositori esterno. Tipo um Amazon
+
+# 1° crie o diretorio -----------------------------------------------------------
+
+    meuProjeto > meuApp > estaticos
+
+# 2° você precisa adicionar aos settings.py --------------------------------------
+
+    # /////////////// link para acessar os diretorios dos arquivos de media
+    MEDIA_URL = '/media/'
+
+    # /////////////// Diretorio dos arquivos de media
+    MEDIA_ROOT = 'contas/media'
+
+# 3° definir por onde esse arquivo vai entrar
+
+    # pelo model (models.py)
+
+    photo = models.ImageField(upload_to='media_transacao', null=True, blank=True)
+    # /////////////// upload_to vai criar uma pasta. Onde ele vai armazenar
+
+# 4° configura o formulario
+
+    # prepara o form para receber arquivo (views.py)
+    form = TransacaoForm(request.POST,request.FILES, None)
+    # TransacaoForm e a class do arquivo .form que herda ModelForm (from .form import TransacaoForm)
+    # request.FILES prepara pra receber arquivos
+
+# 5° caso voce queira acessar os arquinos de media pela url
+# o recomendado e criar um repositori na Amazon
+# mais existe uma gambiarra
+# assim voce pode acessar os arquivos de media pela url
+
+    # (urls.py)
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+    urlpatterns = [
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

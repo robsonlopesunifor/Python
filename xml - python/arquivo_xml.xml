@@ -1,0 +1,11 @@
+<ficheiro nome='M6C' img='entrada.jpg' cadeiras='6' estilo='cash game' >
+texto do ficheiro
+	<mural nome='vilao' cor='255' >
+		<recorte nome='A' posicao_x_inicial='0' posicao_x_final='100' />
+		<recorte nome='B' posicao_x_inicial='10' posicao_x_final='90' />
+	</mural>
+	<mural nome='vez' cor='100' >
+		<recorte nome='A' posicao_x_inicial='0' posicao_x_final='100' />
+		<recorte nome='B' posicao_x_inicial='10' posicao_x_final='90' />
+	</mural>
+</ficheiro>

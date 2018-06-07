@@ -1,0 +1,72 @@
+https://docs.python.org/2/library/xml.etree.elementtree.html#xpath-support 
+http://infohost.nmt.edu/tcc/help/pubs/pylxml/web/xpath.html
+--------------------------------------------------------------------------
+import xml.etree.ElementTree as ET
+
+root = ET.fromstring(countrydata)
+
+# Elementos de nível superior
+root.findall(".")
+
+# Todos os "netos" vizinhos dos filhos do "país" do nível superior
+# elements
+root.findall("./country/neighbor")
+
+# Nodos com nome = 'Cingapura' que têm um filho 'ano'
+root.findall(".//year/..[@name='Cingapura']")
+
+# 'year' nodes que são filhos de nós com nome = 'Cingapura'
+root.findall(".//*[@name='Cingapura']/year")
+
+# Todos os nós "vizinhos" que são o segundo filho de seus pais
+root.findall(".//neighbor[2]")
+
+-----------------------------------------------------------------------------
+
+tag	
+
+	Seleciona todos os elementos filho com a etiqueta fornecida. 
+	Por exemplo, spam seleciona todos os elementos filhos nomeados spame 
+	     	     spam/egg seleciona todos os netos nomeados eggem todas as crianças nomeadas spam.
+
+*	
+
+	Seleciona todos os elementos filho. 
+	Por exemplo, */egg seleciona todos os netos nomeados egg.
+
+.	
+
+	Seleciona o nó atual. 
+	Isto é principalmente útil no início do caminho, para indicar que é um caminho relativo.
+
+//	
+
+	Seleciona todos os subelementos, em todos os níveis abaixo do elemento atual. 
+	Por exemplo, .//eggseleciona todos os eggelementos em toda a árvore.
+
+..	
+
+	Seleciona o elemento pai.
+
+[@attrib]	
+
+	Seleciona todos os elementos que possuem o atributo dado.
+
+[@attrib='value']	
+
+	Seleciona todos os elementos para os quais o atributo dado possui o valor dado. 
+	O valor não pode conter aspas.
+
+[tag]	
+
+	Seleciona todos os elementos que têm um filho chamado tag. 
+	Somente crianças imediatas são suportadas.
+
+[tag='text']	
+
+	Seleciona todos os elementos que tenham um filho chamado tagcujo conteúdo completo de texto, incluindo descendentes, seja igual ao dado text.
+
+[position]	
+
+	Seleciona todos os elementos que estão localizados na posição determinada. 
+	A posição pode ser um número inteiro (1 é a primeira posição), a expressão last() (para a última posição) ou uma posição relativa à última posição (por exemplo last()-1).

@@ -1,0 +1,30 @@
+pip install xlwings
+
+Dependências 
+
+pip install pywin32
+
+	- Módulo que permite a criação de componentes COM (Common Object Model) em Python. 
+	  Pode-se tanto criar componentes para serem utilizados por outras linguagens/aplicações 
+	  (servidores) quanto criar objetos previamente existentes (clientes) criados em outras linguagens.
+
+pip install comtypes
+
+	- Comtypes permite definir, chamar e implementar interfaces COM customizadas e baseadas 
+	  em despacho em Python puro. Funciona no Windows, no Windows de 64 bits e no Windows CE.
+
+
+Dependências opcionais 
+
+NumPy
+
+
+pip install pandas
+
+	- trabalho com dados estruturados (tabulares, multidimensionais, potencialmente heterogêneos) 
+	  e séries temporais fáceis e intuitivos. 
+
+Matplotlib	// trabalha com gráficos 
+
+
+Pillow/PIL      // trabalha com imagens 

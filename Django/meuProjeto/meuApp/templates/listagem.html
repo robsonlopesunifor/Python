@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Listagem</h2>
+    <!-- ////////// transacoes[
+	 //////////	{descricao, data, valor},
+	 //////////	{descricao, data, valor},
+	 //////////	{descricao, data, valor},
+	 //////////	...
+    ]-->
+    <ul>
+    {% for transacao in transacoes %}
+    <!-- ////////// transacoes e a variavel (lista vinda do banco de dados) 
+         ////////// que e enviada pela view -->
+        <li>
+            <a href="{% url 'url_atualizar' transacao.id %}" >
+	    <!-- ////////// 'url_atualizar' url -->
+            <!-- ////////// transacao.id passa dados para url -->
+                {{ transacao.descricao }} - {{ transacao.data }} - {{ transacao.valor }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'url_criar' %}" >Novo</a>
+    <!-- ////////// {% url 'url_criar' %} acessa o link definido na urls.py -->
+
+</body>
+</html>

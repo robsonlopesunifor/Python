@@ -1,0 +1,70 @@
+xlwings / Add-in
+
+http://docs.xlwings.org/en/stable/addin.html#xlwings-addin 
+
+
+1° - O excel tem que esta ativado 
+2° - após ter instalado o pip install xlwings
+3° - deixe o excel aberto 
+4° - instale o add-ins com o comando:
+	xlwings addin install
+5° - Reinicie o excel 
+
+----------------------------------------------------------------------------------------------------------------
+
+Interpreter: 
+	- Este é o caminho para o interpretador Python, por exemplo, "C:\Python35\pythonw.exe"ou "/usr/local/bin/python3.5". 
+	- Um campo vazio aponta para o python atual (pythonw) definido pelo  PATH Windows ou .bash_profileno Mac.
+
+PYTHONPATH: 
+	- Se o arquivo de origem do seu código não for encontrado, adicione o caminho aqui.
+
+UDF_MODULES: 
+	- Nomes de módulos Python (sem extensão .py) dos quais as UDFs estão sendo importadas. 
+	- Separe vários módulos por “;”. 
+	- Exemplo: O padrão ele importa um arquivo no mesmo diretório que a planilha do Excel com o mesmo nome, mas terminando em .UDF_MODULES = "common_udfs;myproject".py
+
+Debug UDFs: 
+	- Marque esta caixa se você deseja executar o servidor COM xlwings manualmente para depuração, 
+	- consulte Depuração .
+
+Log File: 
+	- Deixe em branco para a localização padrão (veja abaixo) ou forneça o caminho completo, por exemplo.
+
+
+RunPython: Use UDF Server: 
+	- Usa o mesmo servidor COM para o RunPython e para os UDFs. 
+	- Isso será mais rápido, pois o intérprete não será desligado após cada chamada.
+
+Restart UDF Server: 
+	- Isso desliga o interpretador UDF Server / Python. Ele será reiniciado na próxima chamada de função.
+
+
+Configuração na pasta de trabalho: xlwings.conf
+
+	- As configurações específicas da pasta de trabalho substituem os arquivos de configuração do diretório global: 
+	- As configurações específicas da pasta de trabalho são definidas listando os pares de chave / valor de configuração em uma folha com o nome xlwings.conf. 
+	- Quando você cria um novo projeto com ele, ele já terá essa planilha, mas você precisa renomeá-la para ativá- la.xlwings quickstart    xlwings.conf
+
+---------------------------------
+	|    A		|   B
+1	|Interpreter	|pythonw
+2	|PYTHONPATH	|
+3	|UDF Modules	|
+4	|Debug UDFs	|FALSE
+5	|Log File	|
+6	|Use UDF Server	|FALSE
+---------------------------------
+ 
+Alternativa: módulo VBA independente
+
+	- Às vezes, pode ser útil executar o código do xlwings sem ter que instalar um suplemento primeiro. 
+	- Para fazer isso, você precisa usar a standaloneopção ao criar um novo projeto: .xlwings quickstart myproject --standalone
+ 
+	- Isso adicionará o conteúdo do add-in como um único módulo VBA, para que você não precise mais definir uma referência ao add-in. 
+	- Ele ainda vai ler nas configurações do seu xlwings.confse você não substituí-los usando uma folha com o nome xlwings.conf.
+ 
+
+
+
+

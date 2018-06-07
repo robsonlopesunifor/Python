@@ -1,0 +1,54 @@
+
+1. Python-2.7.x 
+
+OBS: Verifique se a versão oficial e a 2.7 
+
+	Digite no cmd: python --version   
+	se aparecer Python 2.7.14 esta ok 
+	caso contrário  
+		Click com o botão direito na pasta “Este computador”
+		Selecione propriedades
+		Configurações avançadas do sistema 
+		Variáveis de ambiente
+		em Path   coloque  C:\Python27; C:\Python27\Script 
+		Depois reinicie o sistema 
+
+	no cmd digite 
+	pip install  numpy
+	pip install  matplotlib 
+
+-----------------------------------------------------------------------------------------------------------
+	forma mais fácil de instalar o opencv
+		agora é possível instalar o opencv no python 3.6
+
+	https://www.scivision.co/install-opencv-python-windows/ 
+
+	python -m pip install opencv-python
+
+-------------------------------------------------------------------------------------------------------------
+DEPRECIADO 
+
+ 	OpenCV 3.0.0 OBS: as versões mais recentes dão defeito 
+
+	Instale todos os pacotes em suas localidades padrão. Python será instalado em C:/Python27/
+	Após a instalação, abra Python IDLE. Entre e certifique-se de que Numpy esteja funcionando bem.import numpy
+	Baixe a versão OpenCV mais recente do site sourceforge e clique duas vezes para extraí-la.
+	Ir para a pasta opencv / build / python / 2.7 .
+	Copie cv2.pyd para C: / Python27 / lib / site-packeges .
+	Abra Python IDLE e digite os seguintes códigos no terminal Python.
+	>>> import cv2 
+	>>> imprimir cv2.__versão__
+	>>> import numpy
+	>>> from matplotlib import pyplot as plt # OBS: Não crie arquivo com o nome  
+ 	# matplotlib.py na mesma pasta desse
+ 	# arquivo 
+
+
+
+
+
+
+
+
+
+

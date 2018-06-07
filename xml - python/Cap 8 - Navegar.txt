@@ -1,0 +1,46 @@
+# para aprender a navegar pela árvore
+#       http://infohost.nmt.edu/tcc/help/pubs/pylxml/web/class-ElementTree.html
+
+
+#procura
+
+print root.find('mural').tag 	... mural   	# find() retorna o primeiro filho mural OBS: So Filhos do Pai
+print root.findall('mural')[0].tag  ... mural	# findall() retorna [lista] com todos os filho 'mural' do Pai OBS: So Filhos do Pai
+print root.findall('recorte')  	... []		# Nao e filho. Retorna []
+
+#procura em um texto
+
+node=etree.fromstring('<a><b>bum</b><b>ear</b><c/></a>')
+print node.findtext('b')
+
+... bum
+
+#iteracao
+
+for  filho in root: 	# percorre todos os filhos (so os filhos) 
+    print filho.tag, filho.attrib
+
+... mural {'cor': '255', 'nome': 'vilao'}
+... mural {'cor': '100', 'nome': 'vez'}
+
+
+for  filho in root.getiterator(): 	# percorre todos os elentos como uma lista, iguinorando a hierarquia 
+    print filho.tag, filho.attrib
+
+... ficheiro {'estilo': 'cash game', 'cadeiras': '6', 'img': 'entrada.jpg', 'nome': 'M6C'}
+... mural {'cor': '255', 'nome': 'vilao'}
+... recorte {'posicao_x_inicial': '0', 'posicao_x_final': '100', 'nome': 'A'}
+... recorte {'posicao_x_inicial': '10', 'posicao_x_final': '90', 'nome': 'B'}
+... mural {'cor': '100', 'nome': 'vez'}
+... recorte {'posicao_x_inicial': '0', 'posicao_x_final': '100', 'nome': 'A'}
+... recorte {'posicao_x_inicial': '10', 'posicao_x_final': '90', 'nome': 'B'}
+
+
+for  filho in root.getiterator('recorte'): # percorre todos os elentos 'recorte' como uma lista, iguinorando a hierarquia 
+    if  filho.attrib.has_key('nome'): # Se o atributo tiver a chave 'nome' 
+        print filho.get('nome') # como o filho e um dicionario voce pode usar o .get('nome') para pegar os valores 
+... A
+... B
+... A
+... B
+

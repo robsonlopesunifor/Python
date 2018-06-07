@@ -1,0 +1,25 @@
+# Arquivos estaticos sao arquivos que nao se alteram como foto, video, html, pdf
+
+# 1° crie o diretorio -----------------------------------------------------------
+
+    meuProjeto > meuApp > estaticos
+
+# 2° você precisa adicionar aos settings.py --------------------------------------
+
+    # /////////////// link para acessar os diretorios dos arquivos estaticos
+    STATIC_URL = '/static/'
+
+    # /////////////// Diretorio dos arquivos estaticos
+    STATICFILES_DIRS = [
+        'contas/estaticos',
+    ]
+
+# 3° para acessar os arquivos estaticos no html -----------------------------------
+
+    # /////////////////// coloque o load no topo
+    {% load static %}
+
+    # ////////////////// para acessar os arquivo
+    {% static 'estilo.css' %}
+    {% static "django.jpg" %}
+

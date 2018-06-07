@@ -1,0 +1,173 @@
+Heroku
+
+	Manul de como configurar: https://github.com/Gpzim98/django-heroku 
+
+	Criando um repositório no git
+	Se conecte ao seu git
+
+		git config --global user.name "robsonlopesunifor" 
+		git config --global user.email robson.lopes@edu.unifor.com
+
+		( https://pt.stackoverflow.com/questions/4386/como-fa%C3%A7o-para-conectar-remotamente-no-git )
+	
+	1° vá até a pasta do projeto django 
+	
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			cd pasta_do_projeto_django 
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto/pasta_do_projeto_django$
+	
+	2° crie um arquivo, no pasta_do_projeto_django, para definir o que não vai ser comitado 
+
+		.gitignore
+			*.idea       # IDEA
+			*.sqlite3  # BANCO SQLITE
+			*.vEnv      # AMBIENTE VIRTUAL
+			*pyc         # ARQUIVOS COMPILADOS 
+
+	3° GIT INIT, STATUS
+		(venv) robson@robson:~/Documentos/pasta_do_projeto/pasta_do_projeto_django$
+			git init
+		(OBS: de um git status para ver as pasta a serem comitadas)
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			git status
+
+	4° Commit
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			git add .
+    			git commit -m 'First commit'
+
+	5° Escondendo a configuração do setting.py 
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			pip install python-decouple
+			SECRET_KEY = config('SECRET_KEY')
+			DEBUG = config('DEBUG', default=False, cast=bool)
+
+	6° Configurando a Base Daba
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			pip install dj-database-url
+
+		Settings.py
+			# No topo 
+			from dj_database_url import parse as dburl
+
+			default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+			# Se le não achar o DATABASE_URL ele usara default_dburl 
+			DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+
+	7° Arquivos Static 
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			pip install dj-static
+
+		wsgi.py
+			from dj_static import Cling
+			application = Cling(get_wsgi_application())
+
+		Settings.py
+			STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+	8° Requirements do Servidor e do Desenvolvedor
+
+		toda vez que executamos um pip estamos fazendo um requirements
+		mas os requerimentos do servidor não diferentes dos requerimentos da máquina do programador 
+
+		Create a requirements-dev.txt
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			pip freeze > requirements-dev.txt
+
+		isso vai criar um arquivo .txt (requirements-dev.txt) com todos os pip feitos até agora
+			dj-database-url==0.5.0
+			dj-static==0.0.6
+			Django==2.0.5
+			Pillow==5.1.0
+			python-decouple==3.1
+			pytz==2018.4
+			static3==0.7.0
+
+		OBS: Se esse pip parecer delete
+			pkg-resources==0.0.0   # mo meu gerou defeito 
+
+		Crie um arquivo file ( requirements.txt )
+		e inclua uma referência ao arquivo previows e adicione mais dois requisitos
+		esse requirements.txt vai ter os pip necessário para o servidor (no caso os pip necessário para o banco de dados)
+ 
+		Crie o arquivo ( requirements-dev.txt ) 
+			-r requirements-dev.txt        
+			gunicorn
+			psycopg2
+ 
+		OBS: delete o que está no arquivo requirements.txt do requirements-dev.txt
+ 
+	9° Crie um arquivo Procfile e adicione o seguinte código
+
+		web: gunicorn website.wsgi --log-file -
+ 
+        	website.wsgi e o nome do endereço dns gerado pelo heroku 
+			exemplo: 
+			https://gestao-clientes-heroku.herokuapp.com/
+ 
+	10° Crie um arquivo runtime.txt e adicione o seguinte núcleo
+		python-3.6.5
+
+		OBS:
+		na primeira vez que eu enviei pro heroku ele deu treta pos estava 3.5.0
+
+	11° Criando o aplicativo no Heroku
+
+		Você deve instalar ferramentas de CLI heroku em seu computador (consulte http://bit.ly/2jCgJYW )
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+		sudo snap install heroku --classic
+
+	12° aplicativos heroku: 
+
+		definir nome do aplicativo 
+		Lembre-se de pegar o endereço do aplicativo neste ponto
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			heroku apps:create app-name 
+			(OBS: o app-nome tem que ser inedito pos ele vai gerar um DNS )
+
+		exemplo 
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			heroku apps:create gestao-clientes-heroku
+
+		ele vai gerar um endereço DNS e GIT 
+
+		tipo esse (são reais)
+
+		https://gestao-clientes-heroku.herokuapp.com/  
+		https://git.heroku.com/gestao-clientes-heroku.git 
+
+	13° Configurando os hosts permitidos
+
+		inclua seu endereço nas diretivas ALLOWED_HOSTS em settings.py 
+		- Apenas o domínio no caso o 
+			gestao-clientes-heroku.herokuapp.com 
+
+		settings.py 
+			ALLOWED_HOSTS = ['gestao-clientes-heroku.herokuapp.com']
+
+	14º Heroku instalar o plugin de configuração
+
+		heroku plugins:install heroku-config
+
+		Enviando configurações de .env para Heroku 
+		(Você tem que estar dentro do pasta, onde os arquivos .env estão )
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			heroku config:push
+		vai enviar o arquivo  .env 
+
+		Para mostrar informaçoes de configuração 
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			heroku config
+
+	15° Criando Banco de Dados 
+
+		(venv) robson@robson:~/Documentos/pasta_do_projeto$
+			heroku run python3 manage.py migrate
+			Creating the Django admin user
+			heroku run python3 manage.py createsuperuser

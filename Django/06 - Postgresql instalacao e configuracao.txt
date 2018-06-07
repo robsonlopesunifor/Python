@@ -1,0 +1,53 @@
+Postgresql
+
+1° Instalacao 
+
+	sudo apt-get install postgresql
+
+	sudo apt-get install pgadmin3
+
+2° Alterar senha 
+
+	sudo su - postgres
+	psql -d postgres -U postgres // entrar gdb via terminal
+	alter user postgres with password 'suasenha';
+	\q
+
+3° conectar o pgAdmin ao postgres
+
+	File >> add server >> New Server Registration 
+
+	Name = nomeDoServidorBD
+	host = localhost
+	port = 5432
+	maintenenceBD = postgres
+	username = postgres
+	password = *******
+
+4° criar o banco de dados
+
+	click no nomeDoServidorBD
+	click com o botao direito em Database >> new Database
+
+5°  Va para o setting.py 
+
+	DATABASES = {
+  		 'default': {
+       			'ENGINE': 'django.db.backends.postgresql',
+       			'NAME': 'bd_meuBanco',
+       			'USER': 'postgres',
+      			'PASSWORD': 'posser8233',
+      			'HOST': '127.0.0.1',
+      			'PORT': '5432',
+   		}
+	}
+
+6° instalação do psycopg2
+
+	(venv) robson@robson:~/Documentos/pasta_do_projeto$
+		pip install psycopg2
+
+7° gerar as tabelas 
+
+	(venv) robson@robson:~/Documentos/pasta_do_projeto$
+		python manage.py migrate

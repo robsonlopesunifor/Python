@@ -1,0 +1,64 @@
+Aqui, você aprenderá a ler uma imagem, como exibi-la e como salvá-la
+Você aprenderá estas funções: cv2.imread (), cv2.imshow (), cv2.imwrite ()
+Opcionalmente, você aprenderá a exibir imagens com Matplotlib
+
+	importa numpy como np 
+	import cv2
+
+	# Carrega uma imagem colorida em grayscale 
+	img = cv2.imread('messi5.jpg',0)
+	# Carrega imagem em modo escala de cinza 
+	img = cv2.imread('messi5.jpg',1)
+	# Carrega a imagem como tal, incluindo o canal alfa 
+	img = cv2.imread('messi5.jpg',-1)
+
+
+	cv2.namedWindow('imagem',cv2.WINDOW_NORMAL)
+	# WINDOW_NORMAL: permite redimensionar
+	# WINDOW_AUTOSIZE : padrão  
+
+	# Existe um caso especial em que você já pode criar uma janela e carregar a imagem mais tarde. 
+	# Nesse caso, você pode especificar se a janela é redimensionável ou não. 
+
+
+	cv2.imshow('imagem',img) 
+
+	# O primeiro argumento é um nome de janela que é uma string. 
+	# O segundo argumento é a nossa imagem. 
+	# Você pode criar o maior número de janelas que desejar, mas com diferentes nomes de janelas.
+
+	cv2.waitKey(0) 
+
+	# A função aguarda milissegundos especificados para qualquer evento de teclado. 
+	# Se você pressionar qualquer tecla naquele tempo, o programa continua. 
+	# Se 0 for passado, ele espera indefinidamente. 
+	# Também pode ser configurado para detectar traços de teclas específicos
+
+	cv2.destroyAllWindows()
+
+	# simplesmente destrói todas as janelas que criamos. 
+	# Se você deseja destruir qualquer janela específica, passe o nome da janela
+
+
+	cv2.imwrite(‘saida.png’,img)
+
+	# Primeiro argumento é o nome do arquivo, o segundo argumento é a imagem que deseja salvar.
+
+
+
+Resumir
+	O programa abaixo carrega uma imagem em escala de cinza, exibe-a, salve a imagem se você pressionar 's' e sair, 
+	ou simplesmente sair sem salvar se você pressionar a tecla ESC .
+
+import numpy as np 
+import cv2
+
+img = cv2.imread('messi5.jpg',0) 
+cv2.imshow('imagem',img) 
+k = cv2.waitKey(0) 
+se k == 27:     # aguarde a tecla ESC para sair do 
+    cv2.destroyAllWindows() 
+elif k == ord('s'): # aguarde a tecla 's' para salvar e sair do 
+    cv2.imwrite('messigray.png',img) 
+    cv2.destroyAllWindows()
+

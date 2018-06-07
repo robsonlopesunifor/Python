@@ -1,0 +1,32 @@
+from lxml import etree
+
+# Adicionar elementos ............................................
+
+page = etree.Element('html', id='a4') # cria um elemento
+doc = etree.ElementTree(page) # carrega a arvore com o elemento
+
+headElt = etree.SubElement(page, 'head') # adiciona um subelemento 
+bodyElt = etree.SubElement(page, 'body', nome='corpo') # adiciona um subelemento
+title   = etree.SubElement(headElt, 'title') # adiciona um subelemento
+title.text = 'Your page title here' # texto 
+
+linkElt = etree.SubElement(headElt, 'link', rel='stylesheet', href='mystyle.css', type='text/css')
+
+#outFile = open('homemade.xml', 'w')
+#doc.write(outFile)
+
+#.. <html id='a4'>
+#.. <head>
+#.. <title>Your page title here</title>
+#.. <link href="mystyle.css" rel="stylesheet" type="text/css"/>
+#.. </head>
+#.. <body nome="corpo" />
+#.. </html>
+
+# Editar valores ....................................................
+
+doc = etree.parse('homemade.xml') # comverte xml em um elementTree
+print doc.find('head').find('title').text #= 'Novo titulo desta pagina'
+
+#outFile = open('homemade.xml','w')
+#doc.write(outFile)
