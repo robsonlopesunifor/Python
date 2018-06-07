@@ -22,10 +22,10 @@ Baixe no site do [Python 3.6](https://www.python.org/downloads/)
 2. caso contrario  
 	* Click com o botão direito na pasta Este computador
 	 Selecione propriedades
-	3. Configurações avançadas do sistema
-	4. Variáveis de ambiente
-	5. Variaveis de sistema
-	6. Em Path coloque 	 
+	* Configurações avançadas do sistema
+	* Variáveis de ambiente
+	* Variaveis de sistema
+	* Em Path coloque 	 
 		* C:\Users\robson\AppData\Local\Programs\Python\Python36-32; 
 		* C:\Users\robson\AppData\Local\Programs\Python\Python36-32\Scriptsython\Python36-32\Scriptss
 <!--stackedit_data:
