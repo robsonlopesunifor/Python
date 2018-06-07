@@ -1,15 +1,15 @@
-# Python 
+﻿# Python 
 
 
 ## Linux (Ubuntu)
 
-O python ja vem inatalao no ubuntu 
-	- python para python 2.7
-	- python3 para python 3.6
+* O python ja vem inatalao no ubuntu 
+	* python para python 2.7
+	* python3 para python 3.6
 	
-Mas caso por necessario 	
-	- sudo apt-get install python3.6
-	- python3 -V >>> python 3.6
+* Mas caso por necessario 	
+	* sudo apt-get install python3.6
+	* python3 -V >>> python 3.6
 
 
 ## Windows
