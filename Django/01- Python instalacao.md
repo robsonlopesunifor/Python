@@ -17,18 +17,19 @@ Mas caso por necessario
 
 Baixe no site do [Python 3.6](https://www.python.org/downloads/)
 
-1. Digite no cmd: python -V
-	se aparecer Python 3.6 esta ok 
+1. Digite no cmd: `python -V`
+	1. se aparecer Python 3.6 esta ok 
 2. caso contrario  
 	1. Click com o botão direito na pasta Este computador
 	2. Selecione propriedades
 	3. Configurações avançadas do sistema
-	4. Vari�veis de ambiente
+	4. Variáveis de ambiente
 	5. Variaveis de sistema
-	6. em Path coloque 	 C:\Users\robson\AppData\Local\Programs\Python\Python36-32; 
+	6. Em Path coloque 	 
+	7. C:\Users\robson\AppData\Local\Programs\Python\Python36-32; 
 				C:\Users\robson\AppData\Local\Programs\Python\Python36-32\Scripts
 ython\Python36-32\Scripts
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3OTg2OTg4NSw4NjQ3ODA5NTUsMTA4Mz
+eyJoaXN0b3J5IjpbLTk1OTAyOTc4NSw4NjQ3ODA5NTUsMTA4Mz
 I4MzgzOV19
 -->
