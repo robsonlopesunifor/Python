@@ -8,7 +8,7 @@ instalar :
 ```
 sudo apt-get install python3-venv
 ```
-    
+
 ## Windows 
 
 O venv já está instalado junto com python 
