@@ -20,7 +20,7 @@ Este  repositório armazena informações e exemplos de códigos.
  biblioteca de processamento de imagem e vídeo. 
  
 ---
-<img align="left" width="100" height="100" src="./img/openpyxl.jpg">
+<img align="left" width="100" height="100" src="./img/openpyxl.png">
 
 ## 3. [OpenPyXl](./OpenPyXl): 
 biblioteca Python para ler e gravar arquivos xlsx / xlsm / xltx / xltm do Excel. 
@@ -44,7 +44,7 @@ biblioteca que permite fazer solicitações HTTP
 codigo de serialização  dados. 
 
 ---
-<img align="left" width="100" height="100" src="./img/xlwings.png">
+<img align="left" width="100" height="100" src="./img/xlwings.jpg">
 
 ## 7. [Xlwings](./xlwings):  
 biblioteca que substitua suas macros VBA  por  códigos em Python. 
