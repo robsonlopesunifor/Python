@@ -14,25 +14,25 @@ Este  repositório armazena informações e exemplos de códigos.
 
 ---
 
- <img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+ <img align="left" width="100" height="100" src="./img/opencv.png">
  
  ## 2. [OpenCV](./OpenCV):
  biblioteca de processamento de imagem e vídeo. 
  
 ---
-<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+<img align="left" width="100" height="100" src="./img/openpyxl.png">
 
 ## 3. [OpenPyXl](./OpenPyXl): 
 biblioteca Python para ler e gravar arquivos xlsx / xlsm / xltx / xltm do Excel. 
 
 ---
-<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+<img align="left" width="100" height="100" src="./img/pandas.png">
 
 ## 4. [Pandas](./Pandas): 
 biblioteca de analise de dados em python.
 
 ---
-<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+<img align="left" width="100" height="100" src="./img/requests.png">
 
 ## 5. [Requests](./Requests): 
 biblioteca que permite fazer solicitações HTTP 
@@ -44,7 +44,7 @@ biblioteca que permite fazer solicitações HTTP
 codigo de serialização  dados. 
 
 ---
-<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+<img align="left" width="100" height="100" src="./img/xlwings.png">
 
 ## 7. [Xlwings](./xlwings):  
 biblioteca que substitua suas macros VBA  por  códigos em Python. 
