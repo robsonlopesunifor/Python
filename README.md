@@ -20,7 +20,7 @@ Este  repositório armazena informações e exemplos de códigos.
  biblioteca de processamento de imagem e vídeo. 
  
 ---
-<img align="left" width="100" height="100" src="./img/openpyxl.png">
+<img align="left" width="100" height="100" src="./img/openpyxl.jpg">
 
 ## 3. [OpenPyXl](./OpenPyXl): 
 biblioteca Python para ler e gravar arquivos xlsx / xlsm / xltx / xltm do Excel. 
